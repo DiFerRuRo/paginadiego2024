@@ -1,0 +1,126 @@
+@keyframes loco{
+    0%{background: seagreen; transform:rotate(10deg) scale(1,1);}
+    20%{background: lightskyblue; transform:rotate(-10deg) scale(1.5,1.5);}
+    40%{background: lightgray; transform:rotate(10deg) scale(1,1);}
+    60%{background: gold; transform:rotate(-10deg) scale(1.5,1.5);}
+    80%{background: brown; transform:rotate(20deg) scale(1,1);}
+    90%{background: orange; transform:rotate(-10deg) scale(2,2);}
+    100%{background: purple; transform:rotate(10deg) scale(1,1);}
+}
+
+.contenedor{
+    align-items: center;
+    display: flex;
+    border: solid 0.1em;
+    height: 500px;
+    justify-content: space-around;
+
+}
+
+.contenedor div{
+    border: solid 0.1em;
+    filter: invert(1);
+    height: 400px;
+    transition: all linear 0.5s;
+    width: 20%;
+}
+
+.contenedor div:hover{
+    background-size: 50% 50%;
+    filter: invert(0);
+}
+
+.cupon{
+    /* display: none; */
+    font-size: 50px;
+    font-style: italic;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.hija1{
+    animation: animarfondo alternate 2 1s;
+    background: url(1.jpg);
+    background-size: cover;
+}
+
+.hija2{
+    background: url(2.jpg);
+    background-size: cover;
+}
+
+.hija3{
+    background: url(3.jpg);
+    background-size: cover;
+}
+
+.hija4{
+    background: url(4.jpg);
+    background-size: cover;
+}
+
+.imprimir{
+    background: aquamarine url("A.png") no-repeat 5px 5px;
+    background-size: 30px 30px;
+    border-radius: 0.5em 0.5em 0.5em 0.5em;
+    box-shadow: 0.1em 0.2em 0.3em rgba(0, 0, 0, .5);
+    display: block;
+    margin: 1em auto;
+    font-size: 20px;
+    padding: 0.4em;
+    width: 50%;
+}
+
+.imprimir:hover{
+    cursor: pointer;
+}
+
+@media print{
+    .hija1, .hija3{
+        display: none;
+    }
+    .contenedor{
+        background-color: orange;
+        flex-direction: row;
+    }
+    .contenedor div{
+        filter: none;
+        /* background: 100% 50%; */
+        width: 40%;
+    }
+    .cupon{
+        display:block;
+    }
+    .imprimir{
+        display: none;
+    }
+}
+
+@media screen and (orientation:landscape) {
+    body{
+        background: salmon;
+    }
+}
+
+@media screen and (orientation:portrait) {
+    body{
+        background: pink;
+    }
+}
+
+@media screen and (max-width:700px){
+    .contenedor{
+        flex-direction: column;
+        height: auto;
+    }
+    .contenedor div{
+        filter: invert(0);
+        height: 400px;
+        margin-top: 1em;
+        width:100%;
+    }
+    .hija2{
+        animation:loco alternate infinite 5s;
+    }
+}
+
